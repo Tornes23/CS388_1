@@ -4,19 +4,44 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Transform player1;
     public float speed;
-    
+    public float epsilon = 0.01f;
+    private float width;
+    private float height;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        width = 1920f;
+        height = 1080f;
     }
 
-    public void GoTo(Vector3 target)
+    public void GoToTarget(Vector3 target)
     {
+        target.z = transform.position.z;
+
+        DebugLog.DrawDebugText(target.ToString());
+
+        if (Similar(target))
+        {
+            return;
+        }
+
         float step = speed * Time.deltaTime;
-        player1.Translate(Vector3.Normalize(target - player1.position) * step);
+        transform.Translate(Vector3.Normalize(target - transform.position) * step);
+    }
+
+    private bool Similar(Vector3 target)
+    {
+        Vector3 difference = (transform.position - target);
+        if (
+            Mathf.Abs(difference.x) > epsilon ||
+            Mathf.Abs(difference.y) > epsilon
+          )
+        {
+            return false;
+        }
+        return true;
     }
 
     // Update is called once per frame

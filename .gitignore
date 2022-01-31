@@ -58,3 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+GamerMoment/Logs
+GamerMoment/obj
+GamerMoment/ProjectSettings
+GamerMoment/Library
