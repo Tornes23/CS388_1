@@ -19,7 +19,6 @@ public class PvP : MonoBehaviour
 
     public void Clicked()
     {
-        DebugLog.DrawDebugText("PvP Selected");
         SceneManager.LoadScene("PlayerVsPlayer");
     }
 }
