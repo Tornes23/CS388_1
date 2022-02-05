@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public void GoToTarget(Vector3 target)
     {
         //this its so we ignotre the z
-        target.y = transform.position.y;
+        target.y = transform.position.z;
 
         //check if the positions are similar enough
         if (Similar(target))
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         Vector3 difference = (transform.position - target);
         if (
             Mathf.Abs(difference.x) > epsilon ||
-            Mathf.Abs(difference.z) > epsilon
+            Mathf.Abs(difference.y) > epsilon
           )
         {
             return false;
