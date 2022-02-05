@@ -15,7 +15,7 @@ public class ImputManagerLogic : MonoBehaviour
     void Start()
     {
         //
-        Camera.main.aspect = 1920f / 1080f;
+        //Camera.main.aspect = 1920f / 1080f;
         //save the rectangles of where we can touch
         left_screen = new Rect(0, 0, (Screen.width / 2), Screen.height);
         right_screen = new Rect((Screen.width / 2), 0, (Screen.width / 2), Screen.height);
@@ -24,35 +24,51 @@ public class ImputManagerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DebugLog.DrawDebugText("Outside");
+        bool p1_moved = false;
+        bool p2_moved = false;
+        
         //check if there its any imput
-        if (Input.touchCount > 0 || Input.GetMouseButton(0) )
+        for (int i = 0; i < Input.touchCount; ++i)
         {
             //Touche Controls
-            //Touch touch = Input.GetTouch(0);
-            //Vector3 touch_position = Camera.main.ScreenToWorldPoint(touch.position);
-
-            //Mouce Controls (used for debugging purposes)
-            Vector3 touch_position = Input.mousePosition;
-            
-            
+            Touch touch = Input.GetTouch(i);
+            touch_position = touch.position;
 
             //check if we are touching on  the left side of the screen
-            if (left_screen.Contains(touch_position))
+            if (left_screen.Contains(touch_position) && !p1_moved)
             {
-                DebugLog.DrawDebugText("Inside Left");
                 player1.GoToTarget(Camera.main.ScreenToWorldPoint(touch_position));
+                p1_moved = true;
             }
 
             //check if we are touching on the right side of the screen
-            if (right_screen.Contains(touch_position))
+            if (right_screen.Contains(touch_position) && !p2_moved)
             {
-                DebugLog.DrawDebugText("Inside Right");
                 player2.GoToTarget(Camera.main.ScreenToWorldPoint(touch_position));
-            
+                p2_moved = true;
             }
         }
 
+        //DELETE
+        //Mouce Controls (used for debugging purposes)
+        if (Input.GetMouseButton(0))
+        {
+            DebugLog.DrawDebugText("CLICK");
+            touch_position = Input.mousePosition;
 
+            //check if we are touching on  the left side of the screen
+            if (left_screen.Contains(touch_position) && !p1_moved)
+            {
+                player1.GoToTarget(Camera.main.ScreenToWorldPoint(touch_position));
+                p1_moved = true;
+            }
+
+            //check if we are touching on the right side of the screen
+            if (right_screen.Contains(touch_position) && !p2_moved)
+            {
+                player2.GoToTarget(Camera.main.ScreenToWorldPoint(touch_position));
+                p2_moved = true;
+            }
+        }
     }
 }
