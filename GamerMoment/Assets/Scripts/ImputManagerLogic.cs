@@ -9,6 +9,7 @@ public class ImputManagerLogic : MonoBehaviour
     private Rect right_screen;
 
     public PlayerController player1;
+    public PlayerController player2;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class ImputManagerLogic : MonoBehaviour
             if (right_screen.Contains(touch_position))
             {
                 DebugLog.DrawDebugText("Inside Right");
+                player2.GoToTarget(Camera.main.ScreenToWorldPoint(touch_position));
             
             }
         }

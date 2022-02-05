@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float speed = 10;
     public float epsilon = 0.01f;
 
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public void GoToTarget(Vector3 target)
     {
         //this its so we ignotre the z
-        target.z = transform.position.z;
+        target.y = transform.position.y;
 
         //check if the positions are similar enough
         if (Similar(target))
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         Vector3 difference = (transform.position - target);
         if (
             Mathf.Abs(difference.x) > epsilon ||
-            Mathf.Abs(difference.y) > epsilon
+            Mathf.Abs(difference.z) > epsilon
           )
         {
             return false;
