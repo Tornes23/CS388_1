@@ -60,5 +60,7 @@ crashlytics-build.properties
 
 GamerMoment/Logs
 GamerMoment/obj
-GamerMoment/ProjectSettings
 GamerMoment/Library
+GamerMoment/Assets/Resources
+GamerMoment/Temp
+GamerMoment/Packages
