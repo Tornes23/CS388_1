@@ -6,27 +6,25 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float epsilon = 0.01f;
-    private float width;
-    private float height;
 
     // Start is called before the first frame update
     void Start()
     {
-        width = 1920f;
-        height = 1080f;
     }
 
+    //The function that tells the player where to go
     public void GoToTarget(Vector3 target)
     {
+        //this its so we ignotre the z
         target.z = transform.position.z;
 
-        DebugLog.DrawDebugText(target.ToString());
-
+        //check if the positions are similar enough
         if (Similar(target))
         {
             return;
         }
 
+        //compute the step and move towards teh target
         float step = speed * Time.deltaTime;
         transform.Translate(Vector3.Normalize(target - transform.position) * step);
     }
