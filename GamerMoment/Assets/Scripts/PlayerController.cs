@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public void GoToTarget(Vector3 target)
     {
         //this its so we ignotre the z
-        target.y = transform.position.z;
+        target.z = transform.position.z;
 
         //check if the positions are similar enough
         if (Similar(target))
