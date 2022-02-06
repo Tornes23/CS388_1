@@ -7,6 +7,8 @@ TagManager:
   - Goal1
   - Goal2
   - Disk
+  - Wall
+  - Bumper
   layers:
   - Default
   - TransparentFX
