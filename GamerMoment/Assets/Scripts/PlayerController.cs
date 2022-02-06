@@ -6,10 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
     public float epsilon = 0.01f;
+    Rigidbody2D rb;
+    //Vector2 dir;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
     }
 
     //The function that tells the player where to go
@@ -26,7 +29,10 @@ public class PlayerController : MonoBehaviour
 
         //compute the step and move towards teh target
         float step = speed * Time.deltaTime;
-        transform.Translate(Vector3.Normalize(target - transform.position) * step);
+        //dir = target - transform.position;
+        //transform.Translate(Vector3.Normalize(dir * step));
+        //transform.Translate(Vector3.Normalize((target - transform.position)) * step);
+        rb.MovePosition(target);
     }
 
     private bool Similar(Vector3 target)
@@ -46,5 +52,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //ContactPoint2D contact = collision.GetContact(0);
+        //
+        //if(collision.gameObject.tag == "Disk")
+        //{
+        //    float dot = Vector2.Dot(dir, contact.normal);
+        //
+        //}
     }
 }
