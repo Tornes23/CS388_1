@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10;
-    public float epsilon = 0.01f;
-    Rigidbody2D rb;
-    //Vector2 dir;
+    public float mSpeed = 10;
+    public float mEpsilon = 0.01f;
+    private Rigidbody2D mRB;
+
+    public Transform mBound;
+    private Boundary mPlayerBoundarys;
+
+    struct Boundary
+    { 
+        public float mUp, mDown, mLeft, mRight;
+
+        public Boundary(float up, float down, float left, float right)
+        {
+            mUp = up;
+            mDown = down;
+            mLeft = left;
+            mRight = right;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        mRB = GetComponent<Rigidbody2D>();
+
+        mPlayerBoundarys = new Boundary(
+                                            mBound.GetChild(0).position.y,
+                                            mBound.GetChild(1).position.y,
+                                            mBound.GetChild(2).position.x,
+                                            mBound.GetChild(3).position.x
+                                       );
     }
 
     //The function that tells the player where to go
@@ -27,20 +49,23 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        Vector2 clamed_target = new Vector2(Mathf.Clamp(target.x, mPlayerBoundarys.mLeft, mPlayerBoundarys.mRight),
+                                     Mathf.Clamp(target.y, mPlayerBoundarys.mDown, mPlayerBoundarys.mUp));
+
         //compute the step and move towards teh target
-        float step = speed * Time.deltaTime;
+        float step = mSpeed * Time.deltaTime;
         //dir = target - transform.position;
         //transform.Translate(Vector3.Normalize(dir * step));
         //transform.Translate(Vector3.Normalize((target - transform.position)) * step);
-        rb.MovePosition(target);
+        mRB.MovePosition(clamed_target);
     }
 
     private bool Similar(Vector3 target)
     {
         Vector3 difference = (transform.position - target);
         if (
-            Mathf.Abs(difference.x) > epsilon ||
-            Mathf.Abs(difference.y) > epsilon
+            Mathf.Abs(difference.x) > mEpsilon ||
+            Mathf.Abs(difference.y) > mEpsilon
           )
         {
             return false;
