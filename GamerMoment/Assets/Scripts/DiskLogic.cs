@@ -8,6 +8,8 @@ public class DiskLogic : MonoBehaviour
     public GameObject sp_point2;
     public ParticleSpawner prt_emitter;
 
+    public AudioClip BumperSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,11 @@ public class DiskLogic : MonoBehaviour
             Vector2 contact_pos = collision.GetContact(0).point;
             Color c = collision.gameObject.GetComponent<MeshRenderer>().material.color;
             prt_emitter.SpawnRipple(contact_pos, c);
+        }
+
+        if (tag == "Bumper")
+        {
+            AudioSource.PlayClipAtPoint(BumperSound, transform.position);
         }
     }
 }
