@@ -159,6 +159,7 @@ MonoBehaviour:
   mSpeed: 10
   mEpsilon: 0.01
   mBound: {fileID: 1022919694}
+  BonkSound: {fileID: 8300000, guid: 81f9837c35da5234e8acebb59c54a95a, type: 3}
 --- !u!50 &124973801
 Rigidbody2D:
   serializedVersion: 4
@@ -745,6 +746,7 @@ MonoBehaviour:
   mSpeed: 10
   mEpsilon: 0.01
   mBound: {fileID: 1941602184}
+  BonkSound: {fileID: 8300000, guid: 81f9837c35da5234e8acebb59c54a95a, type: 3}
 --- !u!50 &317688608
 Rigidbody2D:
   serializedVersion: 4

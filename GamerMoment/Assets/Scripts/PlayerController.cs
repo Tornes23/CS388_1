@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public Transform mBound;
     private Boundary mPlayerBoundarys;
 
+    public AudioClip BonkSound;
+
     struct Boundary
     { 
         public float mUp, mDown, mLeft, mRight;
@@ -80,12 +82,10 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //ContactPoint2D contact = collision.GetContact(0);
-        //
-        //if(collision.gameObject.tag == "Disk")
-        //{
-        //    float dot = Vector2.Dot(dir, contact.normal);
-        //
-        //}
+        string tag = collision.gameObject.tag;
+        if (tag == "Disk")
+        {
+            AudioSource.PlayClipAtPoint(BonkSound, transform.position);
+        }
     }
 }
