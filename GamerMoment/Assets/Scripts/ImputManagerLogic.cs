@@ -53,7 +53,6 @@ public class ImputManagerLogic : MonoBehaviour
         //Mouce Controls (used for debugging purposes)
         if (Input.GetMouseButton(0))
         {
-            DebugLog.DrawDebugText("CLICK");
             touch_position = Input.mousePosition;
 
             //check if we are touching on  the left side of the screen
