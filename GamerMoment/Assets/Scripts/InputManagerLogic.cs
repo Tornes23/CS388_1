@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImputManagerLogic : MonoBehaviour
+public class InputManagerLogic : MonoBehaviour
 {
     private Vector3 touch_position;
     private Rect left_screen;
@@ -11,9 +11,12 @@ public class ImputManagerLogic : MonoBehaviour
     public PlayerController player1;
     public PlayerController player2;
 
+    public bool mbGameFinished;
+
     // Start is called before the first frame update
     void Start()
     {
+        mbGameFinished = false;
         //
         //Camera.main.aspect = 1920f / 1080f;
         //save the rectangles of where we can touch
@@ -24,6 +27,9 @@ public class ImputManagerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mbGameFinished == true)
+            return;
+
         bool p1_moved = false;
         bool p2_moved = false;
         
@@ -70,4 +76,6 @@ public class ImputManagerLogic : MonoBehaviour
             }
         }
     }
+
+    public void EndGame(bool set) { mbGameFinished = set; }
 }

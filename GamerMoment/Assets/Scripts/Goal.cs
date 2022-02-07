@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Goal : MonoBehaviour
 {
     public Text score;
-    public int player_index;
+    public ReplayRestart menu;
     int goals;
     // Start is called before the first frame update
     void Start()
@@ -18,11 +18,10 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //
-        if(goals == 10)
+        //win condition
+        if(goals == 1)
         {
-            //win screen
-
+            menu.ShowUI(true);
         }
     }
 
