@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Goal : MonoBehaviour
 {
     public Text score;
+    public int player_index;
     int goals;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,11 @@ public class Goal : MonoBehaviour
     void Update()
     {
         //
+        if(goals == 10)
+        {
+            //win screen
+
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

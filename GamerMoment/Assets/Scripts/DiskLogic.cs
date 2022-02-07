@@ -8,18 +8,38 @@ public class DiskLogic : MonoBehaviour
     public GameObject sp_point2;
     public ParticleSpawner prt_emitter;
 
+    private bool mbRespawn;
+    private bool mbZero;
     private Rigidbody2D mRB;
+    private Transform mTransform;
     public float MaxSpeed = 20.0f;
+    public float Scale = 0.75F;
 
     // Start is called before the first frame update
     void Start()
     {
         mRB = GetComponent<Rigidbody2D>();
+        mTransform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
+        if(mbRespawn && !mbZero)
+        {
+            mTransform.localScale -= new Vector3(0.05F, 0.05F, 0.05F);
+            mbZero = Mathf.Abs(mTransform.localScale.x - Scale) <= 0.01F;
+
+            if (mbZero)
+            {
+                mTransform.localScale = new Vector3(Scale, Scale, Scale);
+                mbRespawn = false;
+                mbZero = true;
+                GetComponent<CircleCollider2D>().enabled = true;
+
+            }
+
+        }    
         mRB.velocity = Vector3.ClampMagnitude(mRB.velocity, MaxSpeed);
     }
 
@@ -31,12 +51,14 @@ public class DiskLogic : MonoBehaviour
         {
             //make ball invisible 
             GetComponent<MeshRenderer>().enabled = false;
-            ////particle effect think about how to implement
-            //transform.position = tag == "Goal1" ? sp_point1.transform.position : sp_point2.transform.position;
             //spawn at spawn point 
             transform.position = tag == "Goal1" ? sp_point1.transform.position : sp_point2.transform.position;
+            mbRespawn = true;
+            mbZero = false;
+            mTransform.localScale *= 3;
             mRB.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<CircleCollider2D>().enabled = false;
         }
 
         if(tag == "Wall")
