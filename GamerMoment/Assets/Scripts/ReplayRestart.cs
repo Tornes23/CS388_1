@@ -36,4 +36,5 @@ public class ReplayRestart : MonoBehaviour
     }
 
     public void OpenMainMenu() { SceneManager.LoadScene("Main Menu"); }
+    public void Restart() { SceneManager.LoadScene("PlayerVsPlayer"); }
 }

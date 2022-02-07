@@ -33,4 +33,6 @@ public class Goal : MonoBehaviour
             score.text = goals.ToString();
         }
     }
+  
+    public void Restart() { goals = 0; score.text = goals.ToString(); }
 }
