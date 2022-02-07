@@ -17,5 +17,6 @@ public class ColorChanging : MonoBehaviour
     void Update()
     {
         mMat.SetColor("_EmissionColor", HSBColor.ToColor(new HSBColor(Mathf.PingPong((Time.time + mChange) * mSpeed, 1), 1, 1)));
+        mMat.color = HSBColor.ToColor(new HSBColor(Mathf.PingPong((Time.time + mChange) * mSpeed, 1), 1, 1));
     }
 }

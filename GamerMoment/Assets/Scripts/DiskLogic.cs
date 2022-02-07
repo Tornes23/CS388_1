@@ -6,7 +6,7 @@ public class DiskLogic : MonoBehaviour
 {
     public GameObject sp_point1;
     public GameObject sp_point2;
-    public ParticleSpawner prt_emitter;
+    public GameObject emitter;
 
     private bool mbRespawn;
     private bool mbZero;
@@ -65,7 +65,7 @@ public class DiskLogic : MonoBehaviour
         {
             Vector2 contact_pos = collision.GetContact(0).point;
             Color c = collision.gameObject.GetComponent<MeshRenderer>().material.color;
-            prt_emitter.SpawnRipple(contact_pos, c);
+            Instantiate(emitter).GetComponent<ParticleSpawner>().SpawnRipple(contact_pos, c);
         }
 
         if (tag == "Foul")
