@@ -8,11 +8,31 @@ public class MuteButton : MonoBehaviour
     public GameObject Mute;
     public GameObject UnMute;
 
+    static private bool isMute = false;
+
+    void Start()
+    {
+        if (isMute)
+        {
+            AudioListener.volume = 0;
+            Mute.SetActive(false);
+            UnMute.SetActive(true);
+        }
+        else 
+        {
+            AudioListener.volume = 1;
+            Mute.SetActive(true);
+            UnMute.SetActive(false);
+        }
+    }
+
+
     public void MuteAllSound()
     {
         AudioListener.volume = 0;
         Mute.SetActive(false);
         UnMute.SetActive(true);
+        isMute = true;
     }
 
     public void UnMuteAllSound()
@@ -20,5 +40,6 @@ public class MuteButton : MonoBehaviour
         AudioListener.volume = 1;
         Mute.SetActive(true);
         UnMute.SetActive(false);
+        isMute = false;
     }
 }
