@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip BonkSound;
 
-    struct Boundary
+    public struct Boundary
     { 
         public float mUp, mDown, mLeft, mRight;
 

@@ -17,9 +17,6 @@ public class InputManagerLogic : MonoBehaviour
     void Start()
     {
         mbGameFinished = false;
-        //
-        //Camera.main.aspect = 1920f / 1080f;
-        //save the rectangles of where we can touch
         left_screen = new Rect(0, 0, (Screen.width / 2), Screen.height);
         right_screen = new Rect((Screen.width / 2), 0, (Screen.width / 2), Screen.height);
     }
@@ -48,7 +45,7 @@ public class InputManagerLogic : MonoBehaviour
             }
 
             //check if we are touching on the right side of the screen
-            if (right_screen.Contains(touch_position) && !p2_moved)
+            if (player2 != null && right_screen.Contains(touch_position) && !p2_moved)
             {
                 player2.GoToTarget(Camera.main.ScreenToWorldPoint(touch_position));
                 p2_moved = true;
@@ -69,7 +66,7 @@ public class InputManagerLogic : MonoBehaviour
             }
 
             //check if we are touching on the right side of the screen
-            if (right_screen.Contains(touch_position) && !p2_moved)
+            if (player2 != null && right_screen.Contains(touch_position) && !p2_moved)
             {
                 player2.GoToTarget(Camera.main.ScreenToWorldPoint(touch_position));
                 p2_moved = true;
