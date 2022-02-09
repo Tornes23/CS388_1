@@ -15,6 +15,8 @@ public class DiskLogic : MonoBehaviour
     public float MaxSpeed = 20.0f;
     public float Scale = 0.75F;
 
+    public AudioClip SparkSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class DiskLogic : MonoBehaviour
             Vector2 contact_pos = collision.GetContact(0).point;
             Color c = collision.gameObject.GetComponent<MeshRenderer>().material.color;
             Instantiate(emitter).GetComponent<ParticleSpawner>().SpawnRipple(contact_pos, c);
+            AudioSource.PlayClipAtPoint(SparkSound, transform.position);
         }
 
         if (tag == "Foul")
