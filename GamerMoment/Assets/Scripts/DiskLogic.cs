@@ -16,6 +16,8 @@ public class DiskLogic : MonoBehaviour
     public float Scale = 0.75F;
 
     public AudioClip SparkSound;
+    public AudioClip FoulSound;
+    public AudioClip GoalSound;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +63,7 @@ public class DiskLogic : MonoBehaviour
             mRB.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             GetComponent<MeshRenderer>().enabled = true;
             GetComponent<CircleCollider2D>().enabled = false;
+            AudioSource.PlayClipAtPoint(GoalSound, transform.position);
         }
 
         if(tag == "Wall")
@@ -79,6 +82,7 @@ public class DiskLogic : MonoBehaviour
             transform.position = reset;
             mRB.velocity = reset;
             GetComponent<MeshRenderer>().enabled = true;
+            AudioSource.PlayClipAtPoint(FoulSound, transform.position);
         }
     }
 }

@@ -2293,6 +2293,8 @@ MonoBehaviour:
   MaxSpeed: 20
   Scale: 0.75
   SparkSound: {fileID: 8300000, guid: b9472d20a7a76594fb6706dc0725f576, type: 3}
+  FoulSound: {fileID: 8300000, guid: fee51e53c5d9bd345a36eed8adb33c07, type: 3}
+  GoalSound: {fileID: 8300000, guid: fe29f8deec21fc5469665bc2166b037a, type: 3}
 --- !u!58 &982984256
 CircleCollider2D:
   m_ObjectHideFlags: 0

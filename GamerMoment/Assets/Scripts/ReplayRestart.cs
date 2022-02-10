@@ -10,6 +10,8 @@ public class ReplayRestart : MonoBehaviour
     public Button rematch;
     public Button main_menu;
     public InputManagerLogic input;
+
+    public string LevelName = "PlayerVsPlayer";
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +38,5 @@ public class ReplayRestart : MonoBehaviour
     }
 
     public void OpenMainMenu() { SceneManager.LoadScene("Main Menu"); }
-    public void Restart() { SceneManager.LoadScene("PlayerVsPlayer"); }
+    public void Restart() { SceneManager.LoadScene(LevelName); }
 }
