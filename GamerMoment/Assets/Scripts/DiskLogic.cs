@@ -30,6 +30,7 @@ public class DiskLogic : MonoBehaviour
         mTransform.position = new Vector3(0, 0, 0);
         mbRespawn = true;
         mTransform.localScale *= 5;
+        GetComponent<CircleCollider2D>().enabled = false;
     }
 
     // Update is called once per frame
