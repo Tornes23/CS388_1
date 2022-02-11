@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1001210839}
-  emitter: {fileID: 1135387397}
+  particle: {fileID: 1135387397}
   menu: {fileID: 12544188}
 --- !u!1 &221914481
 GameObject:
@@ -6619,7 +6619,7 @@ GameObject:
   - component: {fileID: 869471136}
   - component: {fileID: 869471135}
   m_Layer: 0
-  m_Name: GoalVFX
+  m_Name: GoalVFX2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11915,6 +11915,7 @@ MonoBehaviour:
   SparkSound: {fileID: 8300000, guid: b9472d20a7a76594fb6706dc0725f576, type: 3}
   FoulSound: {fileID: 8300000, guid: fee51e53c5d9bd345a36eed8adb33c07, type: 3}
   GoalSound: {fileID: 8300000, guid: fe29f8deec21fc5469665bc2166b037a, type: 3}
+  mAI: {fileID: 0}
 --- !u!58 &982984256
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12316,7 +12317,7 @@ GameObject:
   - component: {fileID: 1135387398}
   - component: {fileID: 1135387397}
   m_Layer: 0
-  m_Name: GoalVFX2
+  m_Name: GoalVFX1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13114,7 +13115,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 2
+      value: 0.01
       mode: 0
       spread: 0
       speed:
@@ -18321,7 +18322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1867313644}
-  emitter: {fileID: 869471135}
+  particle: {fileID: 869471135}
   menu: {fileID: 868142418}
 --- !u!1 &1649581398
 GameObject:
