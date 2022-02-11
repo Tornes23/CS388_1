@@ -7,6 +7,7 @@ public class DiskLogic : MonoBehaviour
     public GameObject sp_point1;
     public GameObject sp_point2;
     public GameObject emitter;
+    public Trail mTrail;
 
     private bool mbRespawn;
     private bool mbZero;
@@ -24,6 +25,9 @@ public class DiskLogic : MonoBehaviour
     {
         mRB = GetComponent<Rigidbody2D>();
         mTransform = GetComponent<Transform>();
+        mTransform.position = new Vector3(0, 0, 0);
+        mbRespawn = true;
+        mTransform.localScale *= 5;
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class DiskLogic : MonoBehaviour
     {
         if(mbRespawn && !mbZero)
         {
-            mTransform.localScale -= new Vector3(0.05F, 0.05F, 0.05F);
+            mTransform.localScale -= new Vector3(0.02F, 0.02F, 0.02F);
             mbZero = Mathf.Abs(mTransform.localScale.x - Scale) <= 0.01F;
 
             if (mbZero)
@@ -59,7 +63,7 @@ public class DiskLogic : MonoBehaviour
             transform.position = tag == "Goal1" ? sp_point1.transform.position : sp_point2.transform.position;
             mbRespawn = true;
             mbZero = false;
-            mTransform.localScale *= 3;
+            mTransform.localScale *= 5;
             mRB.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             GetComponent<MeshRenderer>().enabled = true;
             GetComponent<CircleCollider2D>().enabled = false;
@@ -72,6 +76,7 @@ public class DiskLogic : MonoBehaviour
             Color c = collision.gameObject.GetComponent<MeshRenderer>().material.color;
             Instantiate(emitter).GetComponent<ParticleSpawner>().SpawnRipple(contact_pos, c);
             AudioSource.PlayClipAtPoint(SparkSound, transform.position);
+            mTrail.SetColor(c);
         }
 
         if (tag == "Foul")
