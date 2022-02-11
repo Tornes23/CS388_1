@@ -93,21 +93,24 @@ public class InputManagerLogic : MonoBehaviour
             player1.MoveRIGHT();
         }
         //Player 2
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            player2.MoveUP();
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            player2.MoveLEFT();
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            player2.MoveDOWN();
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            player2.MoveRIGHT();
+        if (player2 != null)
+        { 
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                player2.MoveUP();
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                player2.MoveLEFT();
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                player2.MoveDOWN();
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                player2.MoveRIGHT();
+            }
         }
     }
 

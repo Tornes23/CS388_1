@@ -20,9 +20,9 @@ public class AIController : MonoBehaviour
 
     public AudioClip BonkSound;
 
-    static public bool mWait = true;
-    public float mMaxtWaitTime = 1.0f;
+    private float mMaxWaitTime = 3.0f;
     private float mWaitTime = 0.0f;
+    private bool mWait = true;
 
     // Start is called before the first frame update
     void Start()
@@ -74,13 +74,15 @@ public class AIController : MonoBehaviour
         mRB.MovePosition(Vector2.MoveTowards(mRB.position, mTarget, mSpeed * Time.fixedDeltaTime));
     }
 
-    static public void MakeWait()
+    public void MakeWait(float waitTime = 3.0f)
     {
+        mMaxWaitTime = waitTime;
+        mWaitTime = 0.0f;
         mWait = true;   
     }
     private void Wait()
     {
-        if (mWaitTime < mMaxtWaitTime)
+        if (mWaitTime < mMaxWaitTime)
         {
             mWaitTime += Time.deltaTime;
         }

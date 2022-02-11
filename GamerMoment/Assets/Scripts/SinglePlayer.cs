@@ -19,7 +19,6 @@ public class SinglePlayer : MonoBehaviour
 
     public void Clicked()
     {
-        DebugLog.DrawDebugText("Single Player Selected");
         SceneManager.LoadScene("SinglePlayer");
     }
 }
