@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1001210839}
-  emitter: {fileID: 1135387397}
+  particle: {fileID: 1135387397}
   menu: {fileID: 12544188}
 --- !u!1 &221914481
 GameObject:
@@ -18323,7 +18323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1867313644}
-  emitter: {fileID: 869471135}
+  particle: {fileID: 869471135}
   menu: {fileID: 868142418}
 --- !u!1 &1649581398
 GameObject:
