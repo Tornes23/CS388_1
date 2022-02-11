@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class Goal : MonoBehaviour
 {
     public Text score;
+    public GoalParticles emitter;
     public ReplayRestart menu;
     int goals;
     // Start is called before the first frame update
@@ -13,13 +15,14 @@ public class Goal : MonoBehaviour
     {
         goals = 0;
         score.text = goals.ToString();
+        emitter.GoalVFX();
     }
 
     // Update is called once per frame
     void Update()
     {
         //win condition
-        if(goals == 1)
+        if(goals == 7)
         {
             menu.ShowUI(true);
         }
@@ -31,6 +34,7 @@ public class Goal : MonoBehaviour
         {
             goals++;
             score.text = goals.ToString();
+            emitter.GoalVFX();
         }
     }
   
