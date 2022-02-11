@@ -72,6 +72,43 @@ public class InputManagerLogic : MonoBehaviour
                 p2_moved = true;
             }
         }
+
+
+        //BUTTONS
+        //Player 1
+        if (Input.GetKey(KeyCode.W))
+        {
+            player1.MoveUP();
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            player1.MoveLEFT();
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            player1.MoveDOWN();
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            player1.MoveRIGHT();
+        }
+        //Player 2
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            player2.MoveUP();
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            player2.MoveLEFT();
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            player2.MoveDOWN();
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            player2.MoveRIGHT();
+        }
     }
 
     public void EndGame(bool set) { mbGameFinished = set; }

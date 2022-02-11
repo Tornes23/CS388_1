@@ -369,6 +369,7 @@ MonoBehaviour:
   mAiBound: {fileID: 1022919694}
   mDiskBound: {fileID: 177694971}
   BonkSound: {fileID: 8300000, guid: 81f9837c35da5234e8acebb59c54a95a, type: 3}
+  mMaxtWaitTime: 1
 --- !u!1 &177059016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc95d711b48f50449895058a8fd915f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mSpeed: 10
+  mSpeed: 20
   mEpsilon: 0.01
   mBound: {fileID: 1941602184}
   BonkSound: {fileID: 8300000, guid: 81f9837c35da5234e8acebb59c54a95a, type: 3}
@@ -2244,7 +2245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8b8ba1026159f3741a0aa8c50ef4863a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0

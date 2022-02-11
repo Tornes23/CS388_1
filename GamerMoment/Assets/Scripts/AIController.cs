@@ -20,6 +20,10 @@ public class AIController : MonoBehaviour
 
     public AudioClip BonkSound;
 
+    static public bool mWait = true;
+    public float mMaxtWaitTime = 1.0f;
+    private float mWaitTime = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,12 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (mWait)
+        {
+            Wait();
+            return;
+        }
+        
         float speed;
 
         if (mDisk.position.x < mDiskBoundarys.mLeft)
@@ -62,6 +72,22 @@ public class AIController : MonoBehaviour
         }
 
         mRB.MovePosition(Vector2.MoveTowards(mRB.position, mTarget, mSpeed * Time.fixedDeltaTime));
+    }
+
+    static public void MakeWait()
+    {
+        mWait = true;   
+    }
+    private void Wait()
+    {
+        if (mWaitTime < mMaxtWaitTime)
+        {
+            mWaitTime += Time.deltaTime;
+        }
+        else
+        {
+            mWait = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
