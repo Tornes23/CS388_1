@@ -9,7 +9,7 @@ public class GoalParticles : MonoBehaviour
     void Start()
     {
         emitter = GetComponent<ParticleSystem>();
-        emitter.Stop();
+        emitter.Play();
     }
 
     // Update is called once per frame
@@ -23,6 +23,7 @@ public class GoalParticles : MonoBehaviour
     }
     public void GoalVFX()
     {
+        emitter = GetComponent<ParticleSystem>();
         emitter.Play();
         var shape = emitter.shape;
         shape.radius = 15.0F;

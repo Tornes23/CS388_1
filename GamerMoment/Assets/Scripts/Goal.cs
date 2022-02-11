@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 public class Goal : MonoBehaviour
 {
     public Text score;
-    public GoalParticles emitter;
+    public GoalParticles particle;
     public ReplayRestart menu;
     int goals;
     // Start is called before the first frame update
@@ -15,7 +15,7 @@ public class Goal : MonoBehaviour
     {
         goals = 0;
         score.text = goals.ToString();
-        emitter.GoalVFX();
+        particle.GoalVFX();
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Goal : MonoBehaviour
         {
             goals++;
             score.text = goals.ToString();
-            emitter.GoalVFX();
+            particle.GoalVFX();
         }
     }
   
